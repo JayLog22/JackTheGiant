@@ -10,7 +10,6 @@ public class OptionsController : MonoBehaviour
 
     void Start()
     {
-        GamePreferences.SetIsMusicOn(0);
         SetDifficulty();
     }
 

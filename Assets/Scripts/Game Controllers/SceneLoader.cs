@@ -39,37 +39,29 @@ public class SceneLoader : MonoBehaviour
         {
             GamePreferences.SetIsMusicOn(1);
             MusicController.Instance.PlayMusic(true);
-            if (musicBtn.image.sprite != null)
-            {
-                musicBtn.image.sprite = musicIcons[1];
-            }
+            musicBtn.image.sprite = musicIcons[1];
         }
         else if(GamePreferences.GetIsMusicOn() == 1)
         {
             GamePreferences.SetIsMusicOn(0);
             MusicController.Instance.PlayMusic(false);
-            if (musicBtn.image.sprite != null )
-            {
-                musicBtn.image.sprite = musicIcons[0];
-            }
+            musicBtn.image.sprite = musicIcons[0];
         }
     }
 
     void PlayMusicCheck()
     {
-        if (GamePreferences.GetIsMusicOn() == 1)
+        int isMusicOn = GamePreferences.GetIsMusicOn();
+        if (SceneManager.GetActiveScene().name == "MainMenu")
         {
-            MusicController.Instance.PlayMusic(true);
-            if (musicBtn.image.sprite != null)
+            if (isMusicOn == 1)
             {
+                MusicController.Instance.PlayMusic(true);
                 musicBtn.image.sprite = musicIcons[1];
             }
-        }
-        else
-        {
-            MusicController.Instance.PlayMusic(false);
-            if (musicBtn.image.sprite != null)
+            else
             {
+                MusicController.Instance.PlayMusic(false);
                 musicBtn.image.sprite = musicIcons[0];
             }
         }
