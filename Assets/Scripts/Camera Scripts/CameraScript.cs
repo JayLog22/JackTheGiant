@@ -50,8 +50,6 @@ public class CameraScript : MonoBehaviour
         {
             speed = maxSpeed;
         }
-
-        Debug.Log("MaxSpeed is: " + maxSpeed);
     }
 
     void CheckDifficulty()
